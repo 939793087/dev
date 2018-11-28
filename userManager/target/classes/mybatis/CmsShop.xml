@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userManager.dao.ICmsShopDao">
+
+  <select id="findListShop" resultType="userManager.VO.CmsShopVO">
+    SELECT TOP 200 
+	    t.company company, 
+	    t.shopid shopid, 
+	    t.create_date createdate, 
+	    t.shopname shopname, 
+	    t.shoptype shoptype, 
+	    t.parentshopid parentshopid, 
+	    t.topshopid topshopid, 
+	    t.mobile mobile
+	FROM cms_shop t	
+		<include refid="cmsID"></include>
+  </select>
+  
+  <update id="updatebyID"  parameterType="userManager.VO.CmsShopVO">
+  	update cms_shop set parentshopid = #{parentshopid} where shopid=#{shopid}
+  </update>
+  
+  <update id='updateShopid'  parameterType="userManager.VO.CmsShopVO">
+  	update cms_shop set shopid=#{shopid} where parentshopid=#{parentshopid}
+  </update>
+  
+  <sql id="cmsID">
+		<where>
+			<if test="cms != null and cms != ''">
+				<if test = "cms.company != null and cms.company !=''">
+					and t.company=#{cms.company}
+				</if>
+				<if test="cms.shopid !=null and cms.shopid !=''">
+					and t.shopid = #{cms.shopid}
+				</if>
+				<if test="cms.createdate !=null and cms.createdate !=''">
+					and t.create_date = #{cms.createdate}
+				</if>
+				<if test="cms.shopname !=null and cms.shopname !=''">
+					and t.shopname = #{cms.shopname}
+				</if>
+				<if test = "cms.company != null and cms.company !=''">
+					and t.shoptype=#{cms.shoptype}
+				</if>
+				<if test="cms.parentshopid !=null and cms.parentshopid !=''">
+					and t.parentshopid = #{cms.parentshopid}
+				</if>
+				<if test="cms.topshopid !=null and cms.topshopid !=''">
+					and t.topshopid = #{cms.topshopid}
+				</if>
+				<if test="cms.mobile !=null and cms.mobile !=''">
+					and t.mobile = #{cms.mobile}
+				</if>
+			</if>
+		</where>
+    	;
+	</sql>
+  
+</mapper>

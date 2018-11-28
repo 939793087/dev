@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userManager.dao.UserDao">
+<!-- 
+	<resultMap type="userManager.VO.UserVO" id="userResultMap">
+		<id property="userID" column="user_id"/>
+		<result property="loginID" column="login_id"/>
+		<result property="userName" column="user_name"/>
+		<result property="password" column="password"/>
+	</resultMap> -->
+ 
+  <select id="islogin" resultType="userManager.VO.UserVO">
+    select 
+    	t.mobile mobile,
+    	t.password password,
+    	t.shopid shopid,
+    	t.shopname shopname,
+    	t.shoptype shoptype
+    from cms_shop t
+    where t.shopname=#{loginID}
+    and t.mobile = #{password};
+  </select>
+  
+  <select id="findListByID" resultType="userManager.VO.UserVO">
+  	select 
+	    t.user_id userID,
+	    t.login_id loginID,
+	    t.user_name userName,
+	    t.password password
+	    from student_user t
+	    <include refid="whereID"></include>
+   </select>
+   
+	<sql id="whereID">
+		where 1=1
+		<choose>
+			<when test = "userName != null and userName !=''">
+				and t.user_name=#{userName}
+			</when>
+			<when test="password !=null and password !=''">
+				and t.password = #{password}
+			</when>
+			<when test="userid !=null and userid !=''">
+				and t.user_id = #{userid}
+			</when>
+			<when test="loginid !=null and loginid !=''">
+				and t.login_id = #{loginid}
+			</when>
+		</choose>
+    	;
+	</sql>  
+ 
+</mapper>

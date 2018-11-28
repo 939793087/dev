@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!-- <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../css/bc.grid-1.0.0.min.css"/>
+<script src="../js/common/jquery.min.js"></script>
+<script src="../js/common/bc.grid-1.0.0.min.js"></script> -->
+<link rel="stylesheet" href="../css/alert.css"/>
+<link rel="stylesheet" href="../css/redmond/jquery-ui-1.8.16.custom.css"/>
+<link rel="stylesheet" href="../css/ui.jqgrid.css"/>
+
+<script src="../js/common/jquery-1.7.1.js"></script>
+<script src="../js/common/alert.js"></script>
+<script src="../js/common/jquery.jqGrid.src.js"></script>
+
+<script type="text/javascript" src="../js/cmsShop.js"></script>
+
+<style>
+div{width:100%;text-align:center;margin:auto;}
+
+ .btnStyle{
+ 	width: 104px;height: 35px;border-radius: 20px;font-size: 21px;background-color: #85b5d9;border: 0;color: #ffffff;
+ 	display:inline-block;
+ }
+ .conterbtnStyle{
+ 	border:1px solid #f1f1f1;display:inline-block;text-align:center;font-size:14px;cursor:pointer;
+ 	width:68px;height:30px;
+ }
+</style>
+<title>cmsShop表格操作</title>
+</head>
+<body align="center">
+	<div>
+		<table align="center"style="display: inline;">
+			<tr>
+				<td align="left" style="background-color: #efefef;">company</td>
+				<td  align="left" style="width: 260px;"><input style="height: 20px;" id="company" type="text" value=""/></td>
+				<td align="left" style="background-color: #efefef;">shopid</td>
+				<td align="left" style="width: 260px;"><input style="h	eight: 20px;" id="shopid" type="text" value=""/></td>
+			</tr>
+			<tr>
+				<td align="left" style="background-color: #efefef;">createdate</td>
+				<td align="left" style="width: 260px;"><input style="height: 20px;" id="createdate" type="text" value=""/></td>
+				<td align="left" style="background-color: #efefef;">shopname</td>
+				<td align="left" style="width: 260px;"><input style="height: 20px;" id="shopname" type="text" value=""/></td>
+			</tr>
+			<tr>
+				<td align="left" style="background-color: #efefef;">shoptype</td>
+				<td align="left" style="width: 260px;"><input style="height: 20px;" id="shoptype" type="text" value=""/></td>
+				<td align="left" style="background-color: #efefef;">parentshopid</td>
+				<td align="left" style="width: 260px;"><input style="height: 20px;" id="parentshopid" type="text" value=""/></td>
+			</tr>
+			<tr>
+				<td align="left" style="background-color: #efefef;">topshopid</td>
+				<td align="left" style="width: 260px;"><input style="height: 20px;" id="topshopid" type="text" value=""/></td>
+				<td align="left" style="background-color: #efefef;">mobile</td>
+				<td align="left" style="width: 260px;"><input style="height: 20px;" id="mobile" type="text" value=""/></td>
+			</tr>
+		</table>
+		</br>
+		<input id="findbyvalueID" class="btnStyle" type="button" onclick="findBtn()" value="查询"/>
+		<input id="editbyID" class="btnStyle" type="button" onclick="editBtn()" value="编辑"/>
+		<input id="savebyID" class="btnStyle" type="button" onclick="saveBtn(1)" value="保存"/>
+		<input id="editButtomID" class="btnStyle" type="button" onclick="editButtomBtn()" value="修改下级"/>
+	</div>
+	</br>
+	
+	<div  align="center">
+		<table id="list2"></table>
+	</div>
+</body>
+</html>
