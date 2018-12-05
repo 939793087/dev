@@ -107,7 +107,7 @@
 		    <version>1.2.5.RELEASE</version>
 		</dependency>
 
-        <!-- end -->
+        <!-- end.. -->
         
         <dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
